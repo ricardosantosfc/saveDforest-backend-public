@@ -1,6 +1,6 @@
 # saveDforest Backend Project
-![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)
 
 This repository contains the Node + Express backend server project of the web-app that supports the 'saveDforest' (v1) game - a browser based, serious game for promoting environmentally sustainable behaviors through empathy. 
 

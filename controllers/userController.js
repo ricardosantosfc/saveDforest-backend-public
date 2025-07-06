@@ -19,6 +19,7 @@ const requireAuth = require('../middlewares/requireAuth');
 //not the best approach -> npm validator
 //for now, reject authenticated users (cookie still active & deleted indexed db). 
 //in the future maybe change front end so user is asked whether to continue session or not
+//session.save() is done automatically, at the end of the response
 exports.signup = [rejectAuth, async function(req, res,next) {
 
     const emailRegex = /^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -38,7 +39,7 @@ exports.signup = [rejectAuth, async function(req, res,next) {
       await user.save()
       req.session.user = user._id; 
       req.session.isAuthenticated = true; 
-      req.session.store; 
+
 
       res.status(200).send({success: true, message: "sign up successful"});
     } catch (err) {   
@@ -57,6 +58,7 @@ exports.signup = [rejectAuth, async function(req, res,next) {
 //as user either started a session on a new device/browser, or has deleted the cookie (+ deleted indexed db).
 //for now, reject authenticated users (cookie still active & deleted indexed db). 
 //in the future maybe change front end so user is asked whether to continue session or not
+//session.save() is done automatically, at the end of the response
 exports.login = [rejectAuth, async function(req, res,next) { 
 
     if (typeof req.body.email !== 'string' || typeof req.body.password !== 'string') {
@@ -76,7 +78,7 @@ exports.login = [rejectAuth, async function(req, res,next) {
 
           req.session.user = user._id;
           req.session.isAuthenticated = true; 
-          req.session.store; 
+
           
           const saveData = await SaveData.findOne({ user: user._id }).exec(); //retireve savedata elems if already set
           var currentScene = saveData?.currentScene ?? 0;

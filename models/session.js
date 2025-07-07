@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-//express stores id as a string, so have to explicitly declare it in the schema as a string, otherwise it assumes its an objectid
+//express-session generates id as a string, so have to explicitly declare it in the schema as a string, otherwise mongoose assumes its an objectid, 
+//failing delete when starting session in other device/browser
 
 const SessionSchema = new Schema({ 
     _id: {

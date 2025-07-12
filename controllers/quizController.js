@@ -1,7 +1,7 @@
 const saveData = require('../models/saveData');
 const requireAuth = require('../middlewares/requireAuth');
 
-//handle quiz post, including final one if user hasnt set requirements for final badge
+//handle quiz post, including final one if user hasnt set requirements for special final badge
 //badge == 0 ? update score : update badge + score
 exports.quiz_post = [requireAuth, async function(req, res,next){
     
@@ -39,7 +39,7 @@ exports.quiz_post = [requireAuth, async function(req, res,next){
       
 }]
   
-//after final quiz, user set requirements for final badge (9). recieve current score, and if has won the quiz 8 badge. 
+//after final quiz, user set requirements for special final badge (index number 9). recieve current score, and if has won the quiz 8 badge. 
 //badge == 1 ? recieve badge 8 + final : recieve final badge only
 exports.quiz_set_final_badge = [requireAuth, async function(req, res,next){
 

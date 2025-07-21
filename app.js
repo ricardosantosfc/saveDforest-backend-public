@@ -46,8 +46,8 @@ proxy: true, cookie: {secure: true, sameSite: 'strict'}, store: MongoStore.creat
 
 
 //for localhost
-//app.use(session({secret: process.env.SESSION_SECRET, name: 'session', resave: false, saveUninitialized: false, proxy: true, store: MongoStore.create(
-  //  { mongoUrl: process.env.MONGO_URL, stringify:false })}));
+//app.use(session({secret: process.env.SESSION_SECRET, name: 'saveDforest-Login-Session-Cookie', resave: false, saveUninitialized: false, proxy: true, 
+//store: MongoStore.create({ mongoUrl: process.env.MONGO_URL, stringify:false })}));
 
 app.use('/', indexRouter);
 

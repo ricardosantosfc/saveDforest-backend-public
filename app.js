@@ -30,7 +30,6 @@ app.use(cors({
   ]
 }));
 
-//app.use(cors({credentials: true, origin: 'http://localhost:4200'})); 
 app.set('trust proxy', 1) 
 
 app.use(logger('dev'));

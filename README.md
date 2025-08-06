@@ -9,10 +9,10 @@ While the game itself was built with Unity, the web-app that supports it is base
 
 ## Related saveDforest repositories: 
 
-- [savedforest-frontend](https://github.com/ricardosantosfc/savedforest-frontend-public) - Frontend of the web-app
-- savedforest-unity-game - Unity game project (COMING SOON...)
+- [saveDforest-frontend](https://github.com/ricardosantosfc/savedforest-frontend-public) - Frontend of the web-app
+- saveDforest-unity-game - Unity game project (COMING SOON...)
   
 ## Documentation
 
-- [savedforest-documentation](https://ricardosantosfc.github.io/savedforest-documentation/savedforest_documentation.pdf) - Details the projects' structure and source code, along with prerequisite specifications, setup procedures, and instructions for local execution and deployment.
+- [saveDforest-documentation](https://ricardosantosfc.github.io/savedforest-documentation/savedforest_documentation.pdf) - Details the projects' structure and source code, along with prerequisite specifications, setup procedures, and instructions for local execution and deployment.
  

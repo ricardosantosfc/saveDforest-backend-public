@@ -14,5 +14,5 @@ While the game itself was built with Unity, the web-app that supports it is base
   
 ## Documentation
 
-- [saveDforest-documentation](https://ricardosantosfc.github.io/saveDforest-documentation/savedforest_documentation.pdf) - Details the projects' structure and source code, along with prerequisite specifications, setup procedures, and instructions for local execution and deployment.
+- [saveDforest-documentation](https://ricardosantosfc.github.io/saveDforest/savedforest_documentation.pdf) - Details the projects' structure and source code, along with prerequisite specifications, setup procedures, and instructions for local execution and deployment.
  

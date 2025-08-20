@@ -25,7 +25,7 @@ exports.signup = [rejectAuth, async function(req, res,next) {
     const emailRegex = /^[\w.-]+@([\w-]+\.)+[\w-]{2,4}$/;
 
     if (typeof req.body.email !== 'string' || typeof req.body.password !== 'string' || (!emailRegex.test(req.body.email))) {
-      return res.status(401).send({ success: false, message: 'server error' });
+      return res.status(400).send({ success: false, message: 'bad request' });
     }
 
     try {
@@ -47,7 +47,7 @@ exports.signup = [rejectAuth, async function(req, res,next) {
       if (err.code === 11000){
         res.status(422).send({ success: false, message: 'User already exist!' }); 
       }else{
-        res.status(401).send({success: false, message: "server error" });
+        res.status(500).send({success: false, message: "server error" });
       }
     }
        
@@ -62,7 +62,7 @@ exports.signup = [rejectAuth, async function(req, res,next) {
 exports.login = [rejectAuth, async function(req, res,next) { 
 
     if (typeof req.body.email !== 'string' || typeof req.body.password !== 'string') {
-      return res.status(401).send({ success: false, message: 'Invalid credentials' });
+      return res.status(400).send({ success: false, message: 'bad request' });
     }
 
     try{
@@ -112,7 +112,7 @@ exports.logout= [requireAuth, async function (req, res,next){
           secure: true,
         });
         console.log("session successfully logging out = " + req.sessionID);
-        res.status(200).send({message: "logged out successfully"});;
+        res.status(200).send({success: true, message: "logged out successfully"});;
       })
     }catch(err){
       console.log(err);
@@ -126,7 +126,7 @@ exports.logout= [requireAuth, async function (req, res,next){
 exports.reset_pwd_request = async function (req, res,next){ 
 
     if (typeof req.body.email !== 'string') {
-      return res.status(401).send({ success: false, message: 'server error'});
+      return res.status(400).send({ success: false, message: 'bad request'});
     }
 
     console.log(`Attempting to reset password: ${req.body.email}`)
@@ -148,10 +148,10 @@ exports.reset_pwd_request = async function (req, res,next){
             await token.save();
           }catch(errorduplicated){
             console.log(errorduplicated);
-            return res.status(400).send({ success: false, message: 'server error' }); 
+            return res.status(500).send({ success: false, message: 'server error' }); 
           }
         }else{
-          return res.status(400).send({ success: false, message: 'server error' }); 
+          return res.status(500).send({ success: false, message: 'server error' }); 
         }
       }
 
@@ -194,10 +194,10 @@ exports.reset_pwd_request = async function (req, res,next){
         console.log("Reset password email successfully sent");
       }catch(err){
         console.log(err);
-        return res.status(400).send({ success: false, message: 'server error' }); 
+        return res.status(500).send({ success: false, message: 'server error' }); 
       }
     }
-    res.status(200).send({message: "reset password email sent"});
+    res.status(200).send({message: "reset password email has been sent, if email belongs to user."});
 }
 
 
@@ -216,15 +216,15 @@ exports.reset_pwd_request = async function (req, res,next){
             );
             await tokenDB.deleteOne();
         }else{
-          return res.status(400).send({ success: false, message: 'server error' }); 
+          return res.status(418).send({ success: false, message: 'invalid link' }); 
         }
       }else{
-        return res.status(400).send({ success: false, message: 'server error' }); 
+        return res.status(418).send({ success: false, message: 'invalid link' }); 
       }
-      res.status(200).send({message: "reset password email sent"});
+      res.status(200).send({success: true, message: "password successfully changed"});
   }catch(err){
     console.log(err);
-    return res.status(400).send({ success: false, message: 'server error' }); 
+    return res.status(500).send({ success: false, message: 'server error' }); 
   }
 }
   

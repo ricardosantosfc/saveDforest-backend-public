@@ -6,7 +6,7 @@ const requireAuth = require('../middlewares/requireAuth');
 //also handles AES
 //recieves question items as json string 
 //only triggered during first playthrough
-exports.iri_post = [requireAuth, async function(req, res,next){ 
+exports.iri_aes_post = [requireAuth, async function(req, res,next){ 
 
     if (
         typeof req.body.scene !== 'number' || typeof req.body.scoreIRI !== 'number' || typeof req.body.scoreAES !== 'number' ||
@@ -51,7 +51,7 @@ exports.iri_post = [requireAuth, async function(req, res,next){
 
 //updates savedata for subsequent playthroughs (first iri scene is bypassed; only triggered at the end of the game). 
 //evaluates if this playthroughs final score > current maxScore, and send result to frontend
-exports.update_score_iri = [requireAuth, async function(req, res,next){
+exports.update_score_iri_aes = [requireAuth, async function(req, res,next){
   
         try{
             const save = await saveData.findOne({ user: req.session.user }).exec(); 

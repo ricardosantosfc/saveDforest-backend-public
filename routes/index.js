@@ -6,7 +6,7 @@ const rateLimit = require('express-rate-limit');
 /*var async = require('async'); */
 const user_controller = require('../controllers/userController');
 const sam_controller = require('../controllers/samController.js');
-const iri_controller = require('../controllers/iriController.js');
+const iri_aes_controller = require('../controllers/iriAesController.js');
 const quiz_controller = require('../controllers/quizController.js');
 
 //stricter limiter for password req endpoint
@@ -28,9 +28,9 @@ router.post('/resetPwdRequest',resetPwdLimiter, user_controller.reset_pwd_reques
 
 router.post('/newPwdSubmit', user_controller.new_pwd_submit); 
 
-router.post('/iri', iri_controller.iri_post);
+router.post('/iri', iri_aes_controller.iri_aes_post);
 
-router.post('/updateScoreIRI', iri_controller.update_score_iri);
+router.post('/updateScoreIRI', iri_aes_controller.update_score_iri_aes);
 
 router.post('/sam', sam_controller.sam_post); 
 

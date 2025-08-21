@@ -64,7 +64,7 @@ exports.update_score_iri_aes = [requireAuth, async function(req, res,next){
                         score: 0, maxScore: newMaxScore} }
                 ); 
            
-            res.status(200).send({message: "successfully updated save after finishing playthrough", maxScore: maxScore});
+            res.status(200).send({message: "successfully updated save after finishing playthrough", maxScore: newMaxScore});
         }catch(err){
             console.log(err);
             return res.status(500).send({ success: false, message: 'error updating data after finihing playthrough' }); 

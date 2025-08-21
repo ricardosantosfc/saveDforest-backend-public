@@ -30,8 +30,8 @@ exports.signup = [rejectAuth, async function(req, res,next) {
 
     try {
       const user = new User ({email: req.body.email, password: req.body.password, username: req.body.username,age: req.body.age,
-      sex: req.body.sex, nationality: req.body.nationality, education_level: req.body.edu_level, 
-      education_background: req.body.edu_background, education_background_specified: req.body.edu_specify});
+      sex: req.body.sex, nationality: req.body.nationality, education_level: req.body.education_level, 
+      education_background: req.body.education_background, education_background_specified: req.body.education_background_specified});
       
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(user.password, salt);

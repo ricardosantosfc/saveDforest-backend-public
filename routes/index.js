@@ -28,13 +28,13 @@ router.post('/resetPwdRequest',resetPwdLimiter, user_controller.reset_pwd_reques
 
 router.post('/newPwdSubmit', user_controller.new_pwd_submit); 
 
-router.post('/iri', iri_aes_controller.iri_aes_post);
+router.post('/iriAes', iri_aes_controller.iri_aes_post);
 
-router.post('/updateScoreIRI', iri_aes_controller.update_score_iri_aes);
+router.post('/updateScoreIriAes', iri_aes_controller.update_score_iri_aes);
 
 router.post('/sam', sam_controller.sam_post); 
 
-router.post('/updateScoreSAM', sam_controller.update_score_sam);
+router.post('/updateScoreSam', sam_controller.update_score_sam);
 
 router.post('/quiz', quiz_controller.quiz_post);
 

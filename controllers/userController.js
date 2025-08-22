@@ -47,6 +47,7 @@ exports.signup = [rejectAuth, async function(req, res,next) {
       if (err.code === 11000){
         res.status(422).send({ success: false, message: 'User already exist!' }); 
       }else{
+        console.log(err);
         res.status(500).send({success: false, message: "server error" });
       }
     }

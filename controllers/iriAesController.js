@@ -44,6 +44,7 @@ exports.iri_aes_post = [requireAuth, async function(req, res,next){
             
             res.status(200).send({message: "iri and aes data successfully stored"});
         }catch(err){
+            console.log(err);
             return res.status(500).send({ success: false, message: 'error storing aes and iri data' }); 
         }
          

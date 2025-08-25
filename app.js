@@ -12,7 +12,33 @@ const MongoStore = require('connect-mongo');
 const cors = require('cors') 
 const rateLimit = require('express-rate-limit');
 
+/*
+//for swagger OpenAPI documentation.
+const swaggerUi = require('swagger-ui-express');           
+const swaggerJSDoc = require('swagger-jsdoc');              
+const swaggerOptions = require('./swagger-docs/swaggerOptions'); 
+const swaggerSpec = swaggerJSDoc(swaggerOptions);    
+*/
+
 const app = express();
+
+/*
+//for swagger OpenAPI documentation.
+//Uncomment this and respective requires above to:  
+//While running locally, access Swagger UI at http://localhost:3000/api-docs/, 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
+  swaggerOptions: {
+    withCredentials: true
+  }
+}));
+
+//or get OpenApi JSON file at http://localhost:3000/swagger.json
+app.get('/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
+
+*/
 
 //global rate limiter
 const limiter = rateLimit({

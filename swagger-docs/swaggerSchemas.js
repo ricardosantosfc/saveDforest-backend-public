@@ -154,6 +154,12 @@
  *   schemas:
  *     IriAesRequest:
  *       type: object
+ *       required:
+ *         - scene
+ *         - scoreIRI
+ *         - scoreAES
+ *         - questionsIRIjson
+ *         - questionsAESjson
  *       properties:
  *         scene:
  *           type: number
